@@ -46,6 +46,16 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+//if favorites label is tapped
+- (void) favoriteLabelTapped {
+
+}
+
+//retweet label is tapped
+-(void) retweetLabelTapped{
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
