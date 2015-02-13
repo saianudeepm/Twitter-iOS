@@ -18,5 +18,7 @@ extern NSString *const UserPostedNewTweet;
 - (void) loginWithCompletion : (void (^)(User * user, NSError * error)) completion;
 - (void) openURL: (NSURL*) url;
 - (void) homeTimelineWithParams:(NSDictionary *)params completion:(void (^) (NSArray *tweets, NSError *error)) completion;
-- (void)postTweetWithParameters:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion;
+- (void)postTweetWithParams:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion;
+- (void)retweetWithParams:(NSDictionary *)params tweet:(Tweet*)tweet completion:(void(^)(Tweet *tweet, NSError *error))completion;
+-(void) unReTweetWithParams:(NSDictionary *) params tweet:(Tweet *) tweet completion:(void(^) (Tweet *tweet, NSError *error))completion;
 @end

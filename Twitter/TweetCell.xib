@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="111" id="KGk-i7-Jjw" customClass="TweetCell">
+        <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" rowHeight="111" id="KGk-i7-Jjw" customClass="TweetCell">
             <rect key="frame" x="0.0" y="0.0" width="423" height="111"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -45,40 +45,40 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_reply_tweet" translatesAutoresizingMaskIntoConstraints="NO" id="onS-lP-qCf">
-                        <rect key="frame" x="64" y="82" width="16" height="16"/>
+                        <rect key="frame" x="64" y="85" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="9Co-yp-8Z1"/>
                             <constraint firstAttribute="height" constant="16" id="s1i-dN-CEW"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_acitivity_retweet_off" translatesAutoresizingMaskIntoConstraints="NO" id="p7H-ho-kSv">
-                        <rect key="frame" x="119" y="83" width="19" height="14"/>
+                        <rect key="frame" x="119" y="86" width="19" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="19" id="HXt-iB-GaT"/>
                             <constraint firstAttribute="height" constant="14" id="nuK-ba-lJg"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_activity_favorite_off" translatesAutoresizingMaskIntoConstraints="NO" id="ajY-yf-bfd">
-                        <rect key="frame" x="192" y="83" width="14" height="14"/>
+                        <rect key="frame" x="192" y="86" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="14" id="Tcc-Gc-DMc"/>
                             <constraint firstAttribute="height" constant="14" id="Ws2-0R-n5C"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZK0-gi-hUG">
-                        <rect key="frame" x="142" y="84" width="12" height="12"/>
+                        <rect key="frame" x="142" y="87" width="12" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOY-QY-Kfk">
-                        <rect key="frame" x="210" y="84" width="12" height="12"/>
+                        <rect key="frame" x="210" y="87" width="12" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_follow_user" translatesAutoresizingMaskIntoConstraints="NO" id="C7q-we-d5N">
-                        <rect key="frame" x="395" y="80" width="20" height="20"/>
+                        <rect key="frame" x="395" y="83" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="9bv-3C-L0u"/>
                             <constraint firstAttribute="width" constant="20" id="eYW-EA-gae"/>
@@ -100,12 +100,14 @@
                     <constraint firstItem="onS-lP-qCf" firstAttribute="leading" secondItem="Zxa-hQ-K4s" secondAttribute="trailing" constant="8" id="PwI-nz-ET1"/>
                     <constraint firstItem="Zxa-hQ-K4s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="QqZ-bz-u1V"/>
                     <constraint firstItem="tOY-QY-Kfk" firstAttribute="leading" secondItem="ajY-yf-bfd" secondAttribute="trailing" constant="4" id="Qr2-z6-Cgz"/>
-                    <constraint firstItem="onS-lP-qCf" firstAttribute="top" secondItem="Nae-YE-A9h" secondAttribute="bottom" constant="3" id="UQY-wh-qNS"/>
+                    <constraint firstItem="onS-lP-qCf" firstAttribute="top" secondItem="Nae-YE-A9h" secondAttribute="bottom" constant="6" id="UQY-wh-qNS"/>
                     <constraint firstItem="SKK-RR-bW1" firstAttribute="leading" secondItem="Zxa-hQ-K4s" secondAttribute="trailing" constant="8" id="XAm-Vu-Nrl"/>
                     <constraint firstItem="SKK-RR-bW1" firstAttribute="centerY" secondItem="gGB-2C-bqB" secondAttribute="centerY" id="ZM1-Bg-7E1"/>
                     <constraint firstAttribute="trailing" secondItem="C7q-we-d5N" secondAttribute="trailing" constant="8" id="ZVo-md-wzI"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="onS-lP-qCf" secondAttribute="bottom" constant="8" id="ggf-vn-VoY"/>
                     <constraint firstItem="ZK0-gi-hUG" firstAttribute="leading" secondItem="p7H-ho-kSv" secondAttribute="trailing" constant="4" id="i6g-dU-kIW"/>
                     <constraint firstItem="AFL-tq-awr" firstAttribute="leading" secondItem="gGB-2C-bqB" secondAttribute="trailing" constant="8" id="kMl-2R-w8U"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zxa-hQ-K4s" secondAttribute="bottom" constant="8" id="nRh-Za-lSm"/>
                     <constraint firstItem="AFL-tq-awr" firstAttribute="centerY" secondItem="gGB-2C-bqB" secondAttribute="centerY" id="p4j-HZ-jmT"/>
                     <constraint firstItem="ZK0-gi-hUG" firstAttribute="centerY" secondItem="C7q-we-d5N" secondAttribute="centerY" id="qsh-nH-2nt"/>
                     <constraint firstItem="Zxa-hQ-K4s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="skx-Sn-qeU"/>
@@ -125,7 +127,7 @@
                 <outlet property="timeLabel" destination="AFL-tq-awr" id="pAh-Bo-f8u"/>
                 <outlet property="tweetLabel" destination="Nae-YE-A9h" id="KnS-FQ-EEB"/>
             </connections>
-            <point key="canvasLocation" x="147.5" y="270.5"/>
+            <point key="canvasLocation" x="13.5" y="266.5"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -29,16 +29,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.profileImageView.layer.cornerRadius = 3;
-    self.profileImageView.clipsToBounds = YES;
-    self.tweetLabel.preferredMaxLayoutWidth = self.tweetLabel.frame.size.width;
+    //self.profileImageView.layer.cornerRadius = 3;
+    //self.profileImageView.clipsToBounds = YES;
+    //self.tweetLabel.preferredMaxLayoutWidth = self.tweetLabel.frame.size.width;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.tweetLabel.preferredMaxLayoutWidth = self.tweetLabel.frame.size.width;
-    self.profileImageView.layer.cornerRadius = 3;
-    self.profileImageView.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -55,8 +53,8 @@
     self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screename ];
     self.tweetLabel.text = tweet.text;
     self.timeLabel.text = [NSString stringWithFormat:@"%@",tweet.createdAt];
-    self.retweetLabel.text = [NSString stringWithFormat:@"%ld", tweet.retweetCount];
-    self.favoriteLabel.text = [NSString stringWithFormat:@"%ld", tweet.favoriteCount];
+    self.retweetLabel.text = [NSString stringWithFormat:@"%ld", (long)tweet.retweetCount];
+    self.favoriteLabel.text = [NSString stringWithFormat:@"%ld", (long)tweet.favoriteCount];
     
 }
 

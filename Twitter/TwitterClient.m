@@ -11,11 +11,12 @@
 #import "Tweet.h"
 
 
-NSString * const kTwitterConsumerKey = @"MZhbSkepzr9iws6Sb1imQYNnU";
-NSString * const kTwitterConsumerSecret =@"x70h6OQNRfzK3GI0f2Ql55id11lDpVnYcUUqeCnONYVVowJTvi";
+//NSString * const kTwitterConsumerKey = @"MZhbSkepzr9iws6Sb1imQYNnU";
+//NSString * const kTwitterConsumerSecret =@"x70h6OQNRfzK3GI0f2Ql55id11lDpVnYcUUqeCnONYVVowJTvi";
 
-//NSString *const kTwitterConsumerKey = @"98SHujYPX4rMdeuAe0LQGBZCj";
-//NSString * const kTwitterConsumerSecret =@"z3UQbv1ORsYgx6B13LuCrF9S3V7MBWbnCBZlEk3FKqu9ovHzEI";
+NSString *const kTwitterConsumerKey = @"98SHujYPX4rMdeuAe0LQGBZCj";
+NSString * const kTwitterConsumerSecret =@"z3UQbv1ORsYgx6B13LuCrF9S3V7MBWbnCBZlEk3FKqu9ovHzEI";
+
 NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 NSString *const UserPostedNewTweet = @"UserPostedNewTweet";
 
@@ -103,7 +104,7 @@ NSString *const UserPostedNewTweet = @"UserPostedNewTweet";
 
 }
 
-- (void)postTweetWithParameters:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion {
+- (void)postTweetWithParams:(NSDictionary *)params completion:(void (^)(Tweet *tweet, NSError *error))completion {
     // refer to https://dev.twitter.com/rest/reference/post/statuses/update
     [self POST:@"1.1/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
@@ -112,14 +113,32 @@ NSString *const UserPostedNewTweet = @"UserPostedNewTweet";
         completion(nil, error);
     }];
    
-    /*
-    [self POST:@"1.1/statuses/update.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+}
+
+-(void) retweetWithParams:(NSDictionary *)params tweet:(Tweet*)tweet completion:(void(^)(Tweet *tweet, NSError *error))completion{
+    
+  
+    [self POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json",tweet.idStr] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
-        completion(tweet, nil);
+        completion(tweet,nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
         completion(nil, error);
-    }]; */
+        NSLog(@"error is : %@", error);
+    }];
+}
+
+-(void) unReTweetWithParams:(NSDictionary *) params tweet:(Tweet *) tweet completion:(void(^) (Tweet *tweet, NSError *error))completion{
+    
+    
+    [self POST:[NSString stringWithFormat:@"1.1/statuses/destroy/%@.json",tweet.retweetId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
+        completion(tweet,nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        completion(nil, error);
+        NSLog(@"error is : %@", error);
+    }];
 }
 
 

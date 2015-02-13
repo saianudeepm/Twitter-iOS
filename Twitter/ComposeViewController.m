@@ -82,7 +82,7 @@
         [self.tweetTextField setEnabled:YES];
     }
     
-    self.textCounter.title = [NSString stringWithFormat:@"%ld", count];
+    self.textCounter.title = [NSString stringWithFormat:@"%ld", (long)count];
 }
 
 
@@ -117,7 +117,7 @@
     //save the tweet into params object with key as status
     [params setObject:self.tweetTextField.text forKey:@"status"];
 
-    [[TwitterClient sharedInstance] postTweetWithParameters:params completion:^(Tweet *tweet, NSError *error) {
+    [[TwitterClient sharedInstance] postTweetWithParams:params completion:^(Tweet *tweet, NSError *error) {
         
         if(!error) {
             NSLog(@" User has Posted %@", params);

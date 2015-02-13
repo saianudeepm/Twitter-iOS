@@ -19,7 +19,7 @@ NSString* tableCell = @"TweetCell";
 @interface TweetsViewController ()  <UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) TweetCell *dummyCell;
+@property (nonatomic, strong) TweetCell *protoTypeCell;
 @property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
@@ -85,11 +85,11 @@ NSString* tableCell = @"TweetCell";
     return cell;
 }
 
-/*
+
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewAutomaticDimension;
-}*/
+}
 
 #pragma mark - tableview delegate methods
 
@@ -102,6 +102,34 @@ NSString* tableCell = @"TweetCell";
         [dvc setSelectedTweet: selectedTweet];
         //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dvc];
         [self.navigationController pushViewController:dvc animated:YES];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [self configureCell:self.protoTypeCell forRowAtIndexPath:indexPath];
+    [self.protoTypeCell layoutIfNeeded];
+    CGSize size = [self.protoTypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height+1;
+    //return 110;
+}
+
+- (TweetCell *)protoTypeCell {
+    
+    if (!_protoTypeCell) {
+        _protoTypeCell = [self.tableView dequeueReusableCellWithIdentifier:tableCell];
+    }
+    return _protoTypeCell;
+    
+}
+
+- (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell isKindOfClass:[TweetCell class]])
+    {
+        TweetCell *tweetCell = (TweetCell *)cell;
+        tweetCell.tweet = self.tweets[indexPath.row];
     }
 }
 

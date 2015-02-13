@@ -6,9 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailedViewController">
             <connections>
+                <outlet property="favoriteButton" destination="iDx-qH-RO8" id="kpI-Td-gej"/>
                 <outlet property="favoritesLabel" destination="zZ4-Xa-w8j" id="h2p-PF-v52"/>
                 <outlet property="nameLabel" destination="vcO-B2-Hs4" id="Oxp-Qj-fiU"/>
                 <outlet property="profileImageView" destination="jJz-xf-Wxw" id="Ugu-ff-Te5"/>
+                <outlet property="replyButton" destination="OuH-Pm-WOq" id="fVA-tI-cZ7"/>
+                <outlet property="retweetButton" destination="8eD-U3-0VI" id="iMm-II-48T"/>
                 <outlet property="retweetsLabel" destination="6bh-yJ-p5C" id="NUh-mc-2ap"/>
                 <outlet property="screenNameLabel" destination="mPT-io-xXt" id="j5U-7K-LaQ"/>
                 <outlet property="timeLabel" destination="pbs-W4-MmK" id="A7b-9i-gwN"/>
@@ -118,12 +121,18 @@
                     <state key="normal" image="icn_reply_tweet_off_large">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onReply:" destination="-1" eventType="touchUpInside" id="LnA-cR-gJY"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDx-qH-RO8">
                     <rect key="frame" x="148" y="219" width="32" height="32"/>
                     <state key="normal" image="icn_favorite_off_large">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onFavorite:" destination="-1" eventType="touchUpInside" id="ctP-re-fXo"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eD-U3-0VI">
                     <rect key="frame" x="76" y="223" width="30" height="24"/>
@@ -134,6 +143,9 @@
                     <state key="normal" image="icn_retweet_off_large">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onRetweet:" destination="-1" eventType="touchUpInside" id="Z9e-IX-qcw"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
