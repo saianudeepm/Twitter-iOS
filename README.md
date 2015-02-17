@@ -26,7 +26,8 @@ Optional: Account switching
 *[] Swipe to delete an account
 *[] This is a basic twitter app to read and compose tweets the Twitter API.
 
-![Video walkthrough](demo2.gif)]
+![Video walkthrough](demo2.gif)
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 
