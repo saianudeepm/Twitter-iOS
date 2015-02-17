@@ -1,6 +1,37 @@
 # Twitter-iOS
 
-This is a basic twitter app to read and compose tweets the Twitter API.
+# Twitter Redux :
+
+Time spent: 18
+
+Hamburger menu
+*[x] Dragging anywhere in the view should reveal the menu.
+*[x] The menu should include links to your profile, the home timeline, and the mentions view.
+*[x] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+
+Profile page
+*[x] Contains the user header view
+*[x] Contains a section with the users basic stats: # tweets, # following, # followers
+*[x] Optional: Implement the paging view for the user description.
+*[] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+*[] Optional: Pulling down the profile page should blur and resize the header image.
+
+Home Timeline
+*[] Tapping on a user image should bring up that user's profile page
+
+Optional: Account switching
+*[] Long press on tab bar to bring up Account view with animation
+*[] Tap account to switch to
+*[] Include a plus button to Add an Account
+*[] Swipe to delete an account
+*[] This is a basic twitter app to read and compose tweets the Twitter API.
+
+![Video walkthrough](demo2.gif)]
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+
+# Twitter Basic version :
+
 
 Time spent: 17
 
@@ -14,16 +45,18 @@ Required
 *[x] User can pull to refresh
 *[x] User can compose a new tweet by tapping on a compose button.
 *[x] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
-*[ ] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
+*[x] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
 Optional
 
 *[x] When composing, you should have a countdown in the upper right for the tweet limit.
 *[x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
-*[ ] Retweeting and favoriting should increment the retweet and favorite count.
-*[ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
+*[x] Retweeting and favoriting should increment the retweet and favorite count.
+*[x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 *[ ] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 *[ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ![Video Walkthrough](demo.gif)
+
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).

@@ -69,6 +69,21 @@ NSString* pTableCell = @"TweetCell";
     //Register to listen to the user posting a tweet notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPostNewTweet:) name:UserPostedNewTweet object:nil];
     
+    //Add two buttons at the top right of Nav Bar
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icn_profile_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
+    searchButton.tintColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *composeTweetButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icn_profile_compose"] style:UIBarButtonItemStylePlain target:self action:@selector(onComposeClick)];
+    composeTweetButton.tintColor = [UIColor whiteColor];
+    
+    self.navigationItem.rightBarButtonItems = @[composeTweetButton,searchButton];
+
+    // Add logout button at the top left of the Nav Bar
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogout)];
+    
+    self.navigationItem.leftBarButtonItem = logoutButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -233,6 +248,22 @@ NSString* pTableCell = @"TweetCell";
     NSMutableArray *allTweets = [NSMutableArray arrayWithObject:newTweet];
     [allTweets addObjectsFromArray:self.tweets];
     self.tweets = allTweets;
+}
+-(void) onSearchClick {
+    
+}
+
+-(void) onComposeClick {
+    //launch the compose view controller
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    [self.navigationController presentViewController:nvc animated:YES completion:nil];
+}
+
+
+-(void) onLogout{
+    [User logout];
+    
 }
 
 @end
