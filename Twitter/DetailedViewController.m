@@ -12,22 +12,27 @@
 #import "UIImageView+AFNetworking.h"
 
 
-@interface DetailedViewController () <TweetDelegate>
+@interface DetailedViewController () <TweetDelegate,ComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *favoritesLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+
 - (IBAction)onReply:(id)sender;
 - (IBAction)onRetweet:(id)sender;
 - (IBAction)onFavorite:(id)sender;
+
+-(void) setTweetView :(Tweet *) tweet ;
+-(void) setTweetAndFavoriteCounts:(Tweet*) displayTweet tweet:(Tweet *)tweet;
 
 @end
 
@@ -38,14 +43,28 @@
     
     [self setupNavBar];
     [self setUpViews];
+    self.selectedTweet.delegate = self;
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void) updateValues {
+    Tweet *displayTweet;
+    Tweet *tweet = self.selectedTweet;
+    //if retweeted tweet
+    if(tweet.retweeted){
+        displayTweet = tweet.retweetedTweet;
+    }
+    else{
+        displayTweet= tweet;
+    }
+    [self setTweetAndFavoriteCounts: displayTweet tweet:tweet];
+    
+    /*
     self.retweetsLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedTweet.retweetCount];
     self.favoritesLabel.text = [NSString stringWithFormat:@"%ld", (long)self.selectedTweet.favoriteCount];
     self.favoriteButton.selected = self.selectedTweet.favorited;
     self.retweetButton.selected = self.selectedTweet.retweeted;
+    */
 
 }
 
@@ -59,10 +78,13 @@
 #pragma mark - TweetDelegate Methods
 
 -(void) tweet: (Tweet *) tweet didChangeFavorited: (BOOL) favorited {
+    //[self.selectedTweet setTweet:tweet];
+    self.selectedTweet = tweet;
     [self updateValues];
 }
 
 -(void) tweet: (Tweet *) tweet didChangeRetweeted: (BOOL) retweeted {
+    self.selectedTweet = tweet;
     [self updateValues];
 
     NSLog(@"I see so twitter client actually succeeded in toggling the status of retweet nice :)");
@@ -73,28 +95,106 @@
 #pragma  mark - private methods
 
 - (void) setUpViews{
-
-    //populate all the items in the view
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:[self.selectedTweet.user profileImageUrl]] placeholderImage:[UIImage imageNamed:@"icn_profile_placeholder"]];
-    self.profileImageView.layer.cornerRadius = 3;
-    self.profileImageView.clipsToBounds = YES;
-    
-    self.nameLabel.text = [self.selectedTweet.user name];
-    self.screenNameLabel.text = [self.selectedTweet.user screename];
-    
-    self.tweetTextLabel.text = self.selectedTweet.text;
-    self.timeLabel.text = [NSString stringWithFormat:@"%@",self.selectedTweet.createdAt];
-    
-    self.retweetsLabel.text = [NSString stringWithFormat:@"%ld",(long)self.selectedTweet.retweetCount];
-    self.favoritesLabel.text =[NSString stringWithFormat:@"%ld",(long)self.selectedTweet.favoriteCount];
     
     [self.retweetButton setImage:[UIImage imageNamed:@"icn_retweet_off_large"] forState:UIControlStateNormal];
     [self.retweetButton setImage:[UIImage imageNamed:@"icn_retweet_on_large"] forState:UIControlStateSelected];
     
     [self.favoriteButton setImage:[UIImage imageNamed:@"icn_favorite_off_large"] forState:UIControlStateNormal];
     [self.favoriteButton setImage:[UIImage imageNamed:@"icn_favorite_on_large"] forState:UIControlStateSelected];
+    //populate all the items in the view
+     [self setTweetView:self.selectedTweet];
     
-    [self updateValues];
+}
+
+
+- (void)setTweetView:(Tweet *)tweet {
+    
+    Tweet *displayTweet;
+    //if retweeted tweet
+    if(tweet.retweeted){
+        displayTweet = tweet.retweetedTweet;
+    }
+    else{
+        displayTweet= tweet;
+    }
+    NSURL *profileImageUrl = [NSURL URLWithString:displayTweet.user.profileImageUrl];
+    [self.profileImageView setImageWithURL:profileImageUrl  placeholderImage:[UIImage imageNamed:@"icn_profile_placeholder"]];
+    self.profileImageView.layer.cornerRadius = 3;
+    self.profileImageView.clipsToBounds = YES;
+    
+    
+    self.nameLabel.text = displayTweet.user.name;
+    self.screenNameLabel.text = [NSString stringWithFormat:@"@%@", displayTweet.user.screename ];
+    self.tweetTextLabel.text = displayTweet.text;
+    
+    NSString *relativeTimeText;
+    
+    // show relative time
+    NSTimeInterval timeIntervalInSeconds = -[displayTweet.createdAt timeIntervalSinceNow];
+    
+    //show in seconds
+    if(timeIntervalInSeconds <60) {
+        relativeTimeText = [NSString stringWithFormat:@"%.0fs",timeIntervalInSeconds];
+    }
+    //show in minutes
+    else if(timeIntervalInSeconds < 3600){
+        relativeTimeText = [NSString stringWithFormat:@"%.0fm",timeIntervalInSeconds/60];
+    }
+    //show in hours
+    else if(timeIntervalInSeconds <86400){
+        relativeTimeText = [NSString stringWithFormat:@"%.0fh",timeIntervalInSeconds/3600];
+    }
+    // show month day, year
+    else {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"MMM d, yyyy"];
+        relativeTimeText = [dateFormat stringFromDate:displayTweet.createdAt];
+    }
+    
+    self.timeLabel.text = relativeTimeText;
+    [self setTweetAndFavoriteCounts: displayTweet tweet:tweet];
+    
+}
+
+-(void) setTweetAndFavoriteCounts:(Tweet*) displayTweet tweet:(Tweet *)tweet{
+
+    if(tweet.retweetCount > 0){
+        self.retweetsLabel.text = [NSString stringWithFormat:@"%ld", (long)displayTweet.retweetCount];
+    }else{
+        self.retweetsLabel.text = @"";
+    }
+    
+    if(displayTweet.favoriteCount >0){
+        self.favoritesLabel.text = [NSString stringWithFormat:@"%ld", (long)displayTweet.favoriteCount];
+    }else{
+        self.favoritesLabel.text = @"";
+    }
+    
+    if (tweet.retweeted) {
+        self.retweetsLabel.textColor = [UIColor colorWithRed:122.0/255.0
+                                                       green:177.0/255.0
+                                                        blue:76.0/255.0
+                                                       alpha:1.0];
+        [self.retweetButton setSelected:YES];
+        
+    }else {
+        self.retweetsLabel.textColor = [UIColor grayColor];
+        [self.retweetButton setSelected:NO];
+    }
+    
+    if(tweet.favorited){
+        /*self.favoriteLabel.textColor = [UIColor colorWithRed:253.0/255.0
+         green:173.0/255.0
+         blue:22.0/255.0
+         alpha:1.0];
+         */
+        [self.favoriteButton setSelected:YES];
+        
+    }else{
+        self.favoritesLabel.textColor = [UIColor grayColor];
+        [self.favoriteButton setSelected:NO];
+    }
+
 
 }
 
@@ -134,8 +234,14 @@
 -(void) onComposeClick {
     //launch the compose view controller
     ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate= self;
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
     [self.navigationController presentViewController:nvc animated:YES completion:nil];
+}
+
+- (void) didPostTweet: (Tweet *) tweet{
+
+    [self.delegate didReply:tweet];
 }
 
 #pragma mark - Button Actions
@@ -199,15 +305,17 @@
 
 
 - (IBAction)onFavorite:(id)sender {
-    if(self.selectedTweet.favorited){
+    if(self.favoriteButton.selected){
         [self.selectedTweet toggleFavoriteStatus];
         [self.favoriteButton setSelected:NO];
     }
     else{
-        [self.favoriteButton setSelected:YES];
         [self.selectedTweet toggleFavoriteStatus];
+        [self.favoriteButton setSelected:YES];
+
     }
     
     
 }
+
 @end

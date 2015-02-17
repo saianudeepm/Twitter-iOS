@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 
+@protocol DetailedViewControllerDelegate <NSObject>
+
+- (void)didRetweet :(BOOL)didRetweet;
+- (void)didFavorite:(BOOL)didFavorite;
+- (void)didReply: (Tweet *) tweet;
+
+@end
+
 @interface DetailedViewController : UIViewController
 
+@property (nonatomic, weak) id<DetailedViewControllerDelegate> delegate;
 @property (nonatomic,strong) Tweet* selectedTweet;
 
 @end

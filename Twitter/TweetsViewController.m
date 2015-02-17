@@ -16,7 +16,7 @@
 
 NSString* tableCell = @"TweetCell";
 
-@interface TweetsViewController ()  <UITableViewDataSource,UITableViewDelegate>
+@interface TweetsViewController ()  <UITableViewDataSource,UITableViewDelegate,ComposeViewControllerDelegate, DetailedViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) TweetCell *protoTypeCell;
@@ -50,9 +50,10 @@ NSString* tableCell = @"TweetCell";
     
     [self fetchTweets];
     
+    /*
     //Register to listen to the user posting a tweet notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPostNewTweet:) name:UserPostedNewTweet object:nil];
-    
+    */
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -100,6 +101,7 @@ NSString* tableCell = @"TweetCell";
         Tweet *selectedTweet = [self.tweets objectAtIndex:indexPath.row];
         DetailedViewController *dvc = [[DetailedViewController alloc] init];
         [dvc setSelectedTweet: selectedTweet];
+        dvc.delegate = self;
         //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dvc];
         [self.navigationController pushViewController:dvc animated:YES];
     }
@@ -173,6 +175,7 @@ NSString* tableCell = @"TweetCell";
 -(void) onComposeClick {
     //launch the compose view controller
     ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate=self;
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
     [self.navigationController presentViewController:nvc animated:YES completion:nil];
 }
@@ -207,12 +210,44 @@ NSString* tableCell = @"TweetCell";
 
 }
 
+/*
+
 - (void)onPostNewTweet :(NSNotification *) notification {
     NSDictionary *userInfo = notification.userInfo;
     Tweet *newTweet = userInfo[@"tweet"];
     NSMutableArray *allTweets = [NSMutableArray arrayWithObject:newTweet];
     [allTweets addObjectsFromArray:self.tweets];
     self.tweets = allTweets;
+    [self.tableView reloadData];
+}*/
+
+#pragma  mark - ComposeView delegates implementation
+
+-(void) didPostTweet:(Tweet *)tweet{
+    
+    // if the post is successful then add it to the tableview by adding to the underlying datastructure
+    NSLog(@"Hurry got the delegate message");
+    NSMutableArray *tempTweets = [NSMutableArray arrayWithObject:tweet];
+    [tempTweets addObjectsFromArray:self.tweets];
+    self.tweets= tempTweets;
+    [self.tableView reloadData];
+}
+-(void) didPostTweetSuccessfully {
+
+   NSLog(@"did post tweet successfully :)");
+}
+
+#pragma mark - DetailedViewController delegates implementation
+- (void)didRetweet :(BOOL) didRetweet{
+    [self.tableView reloadData];
+}
+
+- (void)didFavorite:(BOOL) didFavorite {
+    [self.tableView reloadData];
+}
+
+- (void)didReply: (Tweet *) tweet{
+    [self didPostTweet:tweet];
 }
 
 @end

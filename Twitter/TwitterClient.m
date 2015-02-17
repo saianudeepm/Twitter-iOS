@@ -11,11 +11,11 @@
 #import "Tweet.h"
 
 
-//NSString * const kTwitterConsumerKey = @"MZhbSkepzr9iws6Sb1imQYNnU";
-//NSString * const kTwitterConsumerSecret =@"x70h6OQNRfzK3GI0f2Ql55id11lDpVnYcUUqeCnONYVVowJTvi";
+NSString * const kTwitterConsumerKey = @"MZhbSkepzr9iws6Sb1imQYNnU";
+NSString * const kTwitterConsumerSecret =@"x70h6OQNRfzK3GI0f2Ql55id11lDpVnYcUUqeCnONYVVowJTvi";
 
-NSString *const kTwitterConsumerKey = @"98SHujYPX4rMdeuAe0LQGBZCj";
-NSString * const kTwitterConsumerSecret =@"z3UQbv1ORsYgx6B13LuCrF9S3V7MBWbnCBZlEk3FKqu9ovHzEI";
+//NSString *const kTwitterConsumerKey = @"98SHujYPX4rMdeuAe0LQGBZCj";
+//NSString * const kTwitterConsumerSecret =@"z3UQbv1ORsYgx6B13LuCrF9S3V7MBWbnCBZlEk3FKqu9ovHzEI";
 
 NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 NSString *const UserPostedNewTweet = @"UserPostedNewTweet";

@@ -15,7 +15,7 @@
     self= [super init ];
     
     if(self){
-        NSLog(@"Raw Tweet:\n : %@",dictionary);
+        //NSLog(@"Raw Tweet:\n : %@",dictionary);
         
         self.text = dictionary[@"text"];
         self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
@@ -38,7 +38,6 @@
             self.retweetedTweet = [[Tweet alloc]initWithDictionary:dictionary[@"retweeted_status"]];
         }
         
-        
     }
     return self;
 }
@@ -59,8 +58,10 @@
         [[TwitterClient sharedInstance] unReTweetWithParams:nil tweet:self
          
                                                  completion:^(Tweet *tweet, NSError *error) {
-                                                     [self setTweet:tweet];
-                                                     [self.delegate tweet:tweet didChangeRetweeted:YES];
+                                                     if(error!=nil)
+                                                         [self.delegate tweet:tweet didChangeRetweeted:YES];
+                                                     else
+                                                         NSLog(@"unable to unretweet %@",error);
                                                  }];
     
     }
@@ -68,8 +69,10 @@
         [[TwitterClient sharedInstance] retweetWithParams:nil tweet:self
          
                                                completion:^(Tweet *tweet, NSError *error) {
-                                                   [self setTweet:tweet];
-                                                   [self.delegate tweet:tweet didChangeRetweeted:YES];
+                                                   if(error!=nil)
+                                                       [self.delegate tweet:tweet didChangeRetweeted:YES];
+                                                   else
+                                                       NSLog(@"unable to retweet %@",error);
                                                }];
         
     
@@ -79,28 +82,39 @@
 
 }
 
+    /*
+
 -(void) setTweet:(Tweet* )tweet{
+
+
 
     self.text=tweet.text;
     self.retweetCount=tweet.retweetCount;
     self.retweeted = tweet.retweeted;
     self.favorited= tweet.favorited;
     self.favoriteCount = tweet.favoriteCount;
+
 }
+*/
 
 -(void)toggleFavoriteStatus{
     // if favorited
     if(self.favorited){
         [[TwitterClient sharedInstance] unfavoriteWithParams:nil tweet:self completion:^(Tweet *tweet, NSError *error) {
-            [self setTweet:tweet];
-            [self.delegate tweet:tweet didChangeFavorited:YES];
+            if(error==nil)
+                [self.delegate tweet:tweet didChangeFavorited:YES];
+            else
+                NSLog(@"unable to unfavorite %@",error);
         }];
     }
     //if not favorited already
     else{
         [[TwitterClient sharedInstance] favoriteWithParams:nil tweet:self completion:^(Tweet *tweet, NSError *error) {
-            [self setTweet:tweet];
-            [self.delegate tweet:tweet didChangeFavorited:YES];
+            
+            if(error==nil)
+                [self.delegate tweet:tweet didChangeFavorited:YES];
+            else
+                NSLog(@"unable to favorite %@",error);
         }];
     }
 }

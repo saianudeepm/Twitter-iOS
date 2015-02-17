@@ -16,7 +16,7 @@
 
 NSString* pTableCell = @"TweetCell";
 
-@interface ProfileViewController ()<UITableViewDataSource,UITableViewDelegate,ProfileCellDelegate>
+@interface ProfileViewController ()<UITableViewDataSource,UITableViewDelegate,ProfileCellDelegate, ComposeViewControllerDelegate, DetailedViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) ProfileCell *dummyCell;
@@ -27,6 +27,7 @@ NSString* pTableCell = @"TweetCell";
 @property (nonatomic, strong) NSArray *tweets;
 
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 
 
 @end
@@ -52,6 +53,7 @@ NSString* pTableCell = @"TweetCell";
     //setup the background image. user bannerurl if not backfill with the background image
     NSString *bannerUrl = user.bannerUrl ? [NSString stringWithFormat:@"%@/mobile_retina", user.bannerUrl] :user.backgroundImageUrl ;
     [self.bannerImageView setImageWithURL:[NSURL URLWithString:bannerUrl]];
+    
     // Do any additional setup after loading the view from its nib.
     
     //set up the tableview
@@ -59,10 +61,13 @@ NSString* pTableCell = @"TweetCell";
     self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:pTableCell bundle:nil] forCellReuseIdentifier:pTableCell];
     
+    /*
     //set up the refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    */
+    
     
     [self fetchTweets];
     
@@ -145,6 +150,7 @@ NSString* pTableCell = @"TweetCell";
             Tweet *selectedTweet = [self.tweets objectAtIndex:indexPath.row];
             DetailedViewController *dvc = [[DetailedViewController alloc] init];
             [dvc setSelectedTweet: selectedTweet];
+            dvc.delegate= self;
             //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dvc];
             [self.navigationController pushViewController:dvc animated:YES];
         }
@@ -256,6 +262,7 @@ NSString* pTableCell = @"TweetCell";
 -(void) onComposeClick {
     //launch the compose view controller
     ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.delegate = self;
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
     [self.navigationController presentViewController:nvc animated:YES completion:nil];
 }
@@ -264,6 +271,34 @@ NSString* pTableCell = @"TweetCell";
 -(void) onLogout{
     [User logout];
     
+}
+
+#pragma  mark - ComposeView delegates
+-(void) didPostTweet:(Tweet *)tweet{
+    
+    // if the post is successful then add it to the tableview by adding to the underlying datastructure
+    NSLog(@"Hurry got the delegate message");
+    NSMutableArray *tempTweets = [NSMutableArray arrayWithObject:tweet];
+    [tempTweets addObjectsFromArray:self.tweets];
+    self.tweets= tempTweets;
+    [self.tableView reloadData];
+}
+-(void) didPostTweetSuccessfully {
+    
+    NSLog(@"did post tweet successfully :)");
+}
+
+#pragma mark - DetailedViewController delegates implementation
+- (void)didRetweet :(BOOL) didRetweet{
+    [self.tableView reloadData];
+}
+
+- (void)didFavorite:(BOOL) didFavorite {
+    [self.tableView reloadData];
+}
+
+- (void)didReply: (Tweet *) tweet{
+    [self didPostTweet:tweet];
 }
 
 @end

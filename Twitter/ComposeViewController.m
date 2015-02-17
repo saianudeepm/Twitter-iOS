@@ -42,6 +42,7 @@
     // make the text field the first responder
     self.tweetTextField.enabled =YES;
     [self.tweetTextField becomeFirstResponder];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,7 +122,16 @@
         
         if(!error) {
             NSLog(@" User has Posted %@", params);
+            //post a notification
             [[NSNotificationCenter defaultCenter] postNotificationName:UserPostedNewTweet object:nil userInfo:[NSDictionary dictionaryWithObject:tweet forKey:@"tweet"]];
+            // also inform the delegate methods
+            if ([self.delegate respondsToSelector:@selector(didPostTweetSuccessfully)]) {
+                [self.delegate didPostTweet:tweet];
+            }
+            else {
+                NSLog(@"ERROR cannot send msg to delegate. Check and see if u have assigned the delegate of this viewcontroller");
+            }
+            
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSLog(@"Failed to post %@", error);

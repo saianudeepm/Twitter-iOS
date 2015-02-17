@@ -36,7 +36,7 @@
 
 @property (nonatomic,weak) id<TweetDelegate> delegate;
 
--(void) setTweet:(Tweet* )tweet;
+// -(void) setTweet:(Tweet* )tweet;
 
 -(void) toggleRetweetStatus;
 -(void) toggleFavoriteStatus;
