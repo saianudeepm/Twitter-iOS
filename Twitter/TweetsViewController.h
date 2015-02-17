@@ -10,7 +10,7 @@
 
 @interface TweetsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
-
+- (void) setupNavBar;
 
 
 @end

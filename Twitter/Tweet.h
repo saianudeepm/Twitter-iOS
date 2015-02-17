@@ -29,6 +29,7 @@
 @property (nonatomic, assign) BOOL favorited;
 @property (nonatomic, assign) BOOL retweeted;
 @property (nonatomic, strong) NSString *retweetId;
+@property (nonatomic, strong)Tweet *retweetedTweet;
 
 - (id) initWithDictionary: (NSDictionary *) dictionary;
 + (NSArray *)tweetsWithArray:(NSArray *)array;
@@ -36,8 +37,8 @@
 @property (nonatomic,weak) id<TweetDelegate> delegate;
 
 -(void) setTweet:(Tweet* )tweet;
--(void) toggleRetweetStatus;
 
+-(void) toggleRetweetStatus;
 -(void) toggleFavoriteStatus;
 
 

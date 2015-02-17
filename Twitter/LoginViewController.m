@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TwitterClient.h"
-#import "TweetsViewController.h"
+#import "MenuViewController.h"
 
 @interface LoginViewController ()
 - (IBAction)onLogin:(id)sender;
@@ -45,7 +45,7 @@
         NSLog(@"Logged in ");
         if(user!=nil){
             //Modally present the tweets view (logged in view)
-            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
+            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:[[MenuViewController alloc] init]];
             [self presentViewController:nvc animated:YES completion:nil];
             NSLog(@"welcome to user : %@",user.name);
         }

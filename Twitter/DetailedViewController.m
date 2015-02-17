@@ -146,7 +146,7 @@
 - (IBAction)onRetweet:(id)sender {
 
     //if retweet is already selected then prompt the user and un retweet it
-    if([self.retweetButton isSelected]){
+    if([self.retweetButton isSelected] ||  self.selectedTweet.retweeted){
         
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
                                                                        message:nil
@@ -154,6 +154,7 @@
         UIAlertAction* undoRetweettAction = [UIAlertAction actionWithTitle:@"Undo Retweet" style:UIAlertActionStyleDestructive
                                                              handler:^(UIAlertAction * action) {
                                                                  [self.retweetButton setSelected:NO];
+                                                                 [self.selectedTweet toggleRetweetStatus];
                                                              }];
         
         UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
@@ -198,11 +199,13 @@
 
 
 - (IBAction)onFavorite:(id)sender {
-    if([self.favoriteButton isSelected]){
+    if(self.selectedTweet.favorited){
+        [self.selectedTweet toggleFavoriteStatus];
         [self.favoriteButton setSelected:NO];
     }
     else{
         [self.favoriteButton setSelected:YES];
+        [self.selectedTweet toggleFavoriteStatus];
     }
     
     

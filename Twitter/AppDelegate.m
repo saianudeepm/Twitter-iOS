@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "TweetsViewController.h"
+#import "MenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,7 +28,8 @@
     
     if([User currentUser]!=nil){
         NSLog(@"User already logged in ");
-        UINavigationController *unc = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
+        UINavigationController *unc = [[UINavigationController alloc] initWithRootViewController:[[MenuViewController alloc] init]];
+        //MenuViewController *mvc = [[MenuViewController alloc] init];
         self.window.rootViewController = unc;
     }
     else{

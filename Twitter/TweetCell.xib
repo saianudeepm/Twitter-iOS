@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="@elonmusk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGB-2C-bqB">
-                        <rect key="frame" x="133" y="9" width="254" height="13.5"/>
+                        <rect key="frame" x="133" y="9" width="254" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="16h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFL-tq-awr">
-                        <rect key="frame" x="395" y="9" width="19.5" height="13.5"/>
+                        <rect key="frame" x="395" y="9" width="20" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                             <constraint firstAttribute="height" constant="16" id="s1i-dN-CEW"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_acitivity_retweet_off" translatesAutoresizingMaskIntoConstraints="NO" id="p7H-ho-kSv">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_activity_retweet_off" translatesAutoresizingMaskIntoConstraints="NO" id="p7H-ho-kSv">
                         <rect key="frame" x="119" y="86" width="19" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="19" id="HXt-iB-GaT"/>
@@ -65,13 +65,12 @@
                             <constraint firstAttribute="height" constant="14" id="Ws2-0R-n5C"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZK0-gi-hUG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZK0-gi-hUG">
                         <rect key="frame" x="142" y="87" width="12" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOY-QY-Kfk">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOY-QY-Kfk">
                         <rect key="frame" x="210" y="87" width="12" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -116,12 +115,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="favoriteImageView" destination="ajY-yf-bfd" id="06T-tW-UGg"/>
+                <outlet property="favoriteImageView" destination="ajY-yf-bfd" id="TdI-h2-xdL"/>
                 <outlet property="favoriteLabel" destination="tOY-QY-Kfk" id="ytc-2e-8D1"/>
                 <outlet property="nameLabel" destination="SKK-RR-bW1" id="RAC-3V-njt"/>
                 <outlet property="profileImageView" destination="Zxa-hQ-K4s" id="i9g-AW-4wr"/>
                 <outlet property="replyImageView" destination="onS-lP-qCf" id="nUA-Sf-jIG"/>
-                <outlet property="retweetImageView" destination="p7H-ho-kSv" id="KQN-n3-pvQ"/>
+                <outlet property="retweetImageView" destination="p7H-ho-kSv" id="Jqj-2u-3CC"/>
                 <outlet property="retweetLabel" destination="ZK0-gi-hUG" id="wHQ-Pj-fId"/>
                 <outlet property="screenNameLabel" destination="gGB-2C-bqB" id="PPP-Ot-63w"/>
                 <outlet property="timeLabel" destination="AFL-tq-awr" id="pAh-Bo-f8u"/>
@@ -131,8 +130,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icn_acitivity_retweet_off" width="19" height="14"/>
         <image name="icn_activity_favorite_off" width="14" height="14"/>
+        <image name="icn_activity_retweet_off" width="19" height="14"/>
         <image name="icn_follow_user" width="32" height="22"/>
         <image name="icn_reply_tweet" width="16" height="16"/>
     </resources>

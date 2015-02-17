@@ -26,6 +26,14 @@
 		FF2994851A88FCFC006ACDF1 /* DetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF2994831A88FCFC006ACDF1 /* DetailedViewController.xib */; };
 		FF2994891A89025C006ACDF1 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2994871A89025C006ACDF1 /* ComposeViewController.m */; };
 		FF29948A1A89025C006ACDF1 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF2994881A89025C006ACDF1 /* ComposeViewController.xib */; };
+		FFB14F0D1A928A73006BC49E /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB14F0B1A928A73006BC49E /* MenuViewController.m */; };
+		FFB14F0E1A928A73006BC49E /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB14F0C1A928A73006BC49E /* MenuViewController.xib */; };
+		FFB14F121A92B161006BC49E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB14F101A92B161006BC49E /* ProfileViewController.m */; };
+		FFB14F131A92B161006BC49E /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB14F111A92B161006BC49E /* ProfileViewController.xib */; };
+		FFB14F171A92E314006BC49E /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB14F151A92E314006BC49E /* ProfileCell.m */; };
+		FFB14F181A92E314006BC49E /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB14F161A92E314006BC49E /* ProfileCell.xib */; };
+		FFB14F1C1A930BFC006BC49E /* MentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB14F1A1A930BFC006BC49E /* MentionsViewController.m */; };
+		FFB14F1D1A930BFC006BC49E /* MentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB14F1B1A930BFC006BC49E /* MentionsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +81,18 @@
 		FF2994861A89025C006ACDF1 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		FF2994871A89025C006ACDF1 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		FF2994881A89025C006ACDF1 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		FFB14F0A1A928A73006BC49E /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		FFB14F0B1A928A73006BC49E /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		FFB14F0C1A928A73006BC49E /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		FFB14F0F1A92B161006BC49E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		FFB14F101A92B161006BC49E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		FFB14F111A92B161006BC49E /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		FFB14F141A92E314006BC49E /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		FFB14F151A92E314006BC49E /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
+		FFB14F161A92E314006BC49E /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		FFB14F191A930BFC006BC49E /* MentionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentionsViewController.h; sourceTree = "<group>"; };
+		FFB14F1A1A930BFC006BC49E /* MentionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentionsViewController.m; sourceTree = "<group>"; };
+		FFB14F1B1A930BFC006BC49E /* MentionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MentionsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +196,9 @@
 		FF02098F1A87558B00A7A28B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFB14F141A92E314006BC49E /* ProfileCell.h */,
+				FFB14F151A92E314006BC49E /* ProfileCell.m */,
+				FFB14F161A92E314006BC49E /* ProfileCell.xib */,
 				FF29947C1A88C9D2006ACDF1 /* TweetCell.h */,
 				FF29947D1A88C9D2006ACDF1 /* TweetCell.m */,
 				FF29947E1A88C9D2006ACDF1 /* TweetCell.xib */,
@@ -209,6 +232,15 @@
 				FF2994861A89025C006ACDF1 /* ComposeViewController.h */,
 				FF2994871A89025C006ACDF1 /* ComposeViewController.m */,
 				FF2994881A89025C006ACDF1 /* ComposeViewController.xib */,
+				FFB14F0A1A928A73006BC49E /* MenuViewController.h */,
+				FFB14F0B1A928A73006BC49E /* MenuViewController.m */,
+				FFB14F0C1A928A73006BC49E /* MenuViewController.xib */,
+				FFB14F0F1A92B161006BC49E /* ProfileViewController.h */,
+				FFB14F101A92B161006BC49E /* ProfileViewController.m */,
+				FFB14F111A92B161006BC49E /* ProfileViewController.xib */,
+				FFB14F191A930BFC006BC49E /* MentionsViewController.h */,
+				FFB14F1A1A930BFC006BC49E /* MentionsViewController.m */,
+				FFB14F1B1A930BFC006BC49E /* MentionsViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -304,11 +336,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB14F131A92B161006BC49E /* ProfileViewController.xib in Resources */,
 				FF29947B1A88A99D006ACDF1 /* TweetsViewController.xib in Resources */,
 				FF2994801A88C9D2006ACDF1 /* TweetCell.xib in Resources */,
+				FFB14F181A92E314006BC49E /* ProfileCell.xib in Resources */,
 				FF2994851A88FCFC006ACDF1 /* DetailedViewController.xib in Resources */,
+				FFB14F0E1A928A73006BC49E /* MenuViewController.xib in Resources */,
 				FF02097A1A87523900A7A28B /* LaunchScreen.xib in Resources */,
 				FF29948A1A89025C006ACDF1 /* ComposeViewController.xib in Resources */,
+				FFB14F1D1A930BFC006BC49E /* MentionsViewController.xib in Resources */,
 				FF0209771A87523900A7A28B /* Images.xcassets in Resources */,
 				FF2994701A875708006ACDF1 /* LoginViewController.xib in Resources */,
 			);
@@ -362,7 +398,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF29946F1A875708006ACDF1 /* LoginViewController.m in Sources */,
+				FFB14F171A92E314006BC49E /* ProfileCell.m in Sources */,
 				FF02096F1A87523900A7A28B /* AppDelegate.m in Sources */,
+				FFB14F1C1A930BFC006BC49E /* MentionsViewController.m in Sources */,
 				FF2994761A8820AB006ACDF1 /* User.m in Sources */,
 				FF2994891A89025C006ACDF1 /* ComposeViewController.m in Sources */,
 				FF2994731A8820A0006ACDF1 /* Tweet.m in Sources */,
@@ -370,6 +408,8 @@
 				FF29946B1A875646006ACDF1 /* TwitterClient.m in Sources */,
 				FF02096C1A87523900A7A28B /* main.m in Sources */,
 				FF29947A1A88A99D006ACDF1 /* TweetsViewController.m in Sources */,
+				FFB14F0D1A928A73006BC49E /* MenuViewController.m in Sources */,
+				FFB14F121A92B161006BC49E /* ProfileViewController.m in Sources */,
 				FF29947F1A88C9D2006ACDF1 /* TweetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

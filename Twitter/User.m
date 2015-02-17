@@ -31,6 +31,11 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
         self.screename = dictionary[@"screen_name"];
         self.profileImageUrl = dictionary[@"profile_image_url"];
         self.tagline = dictionary[@"description"];
+        self.tweetCount = [dictionary[@"statuses_count"] integerValue];
+        self.followCount = [dictionary[@"friends_count"] integerValue];
+        self.followersCount = [dictionary[@"followers_count"] integerValue];
+        self.bannerUrl = dictionary[@"profile_banner_url"];
+        self.backgroundImageUrl = dictionary[@"profile_background_image_url"];
     }
     return self;
 }
