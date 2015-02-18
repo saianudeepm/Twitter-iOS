@@ -10,6 +10,7 @@
 #import "User.h"
 
 @interface ProfileViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) User *user; // this user object is used to populate the user profile view
 

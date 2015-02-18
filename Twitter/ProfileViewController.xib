@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
             <connections>
                 <outlet property="bannerImageView" destination="Oyu-7P-Egp" id="ZEw-bN-bEJ"/>
-                <outlet property="tableView" destination="j1f-dE-xj1" id="J7T-N0-wd8"/>
+                <outlet property="tableView" destination="j1f-dE-xj1" id="6Zt-G1-rER"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,22 +20,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="HQt-Vs-XSc"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="RUf-FS-ZDx"/>
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="j1f-dE-xj1">
+                    <rect key="frame" x="0.0" y="35" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="j1f-dE-xj1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7sI-SF-Dlm"/>
-                <constraint firstItem="Oyu-7P-Egp" firstAttribute="top" secondItem="j1f-dE-xj1" secondAttribute="top" id="7vG-Xl-KHb"/>
-                <constraint firstItem="Oyu-7P-Egp" firstAttribute="top" secondItem="j1f-dE-xj1" secondAttribute="bottom" id="CXZ-Hm-1iC"/>
-                <constraint firstItem="Oyu-7P-Egp" firstAttribute="top" secondItem="j1f-dE-xj1" secondAttribute="bottom" id="D6q-iU-ZCh"/>
-                <constraint firstAttribute="trailing" secondItem="j1f-dE-xj1" secondAttribute="trailing" id="L8C-bT-X00"/>
-                <constraint firstItem="Oyu-7P-Egp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PWi-z3-Cz5"/>
-                <constraint firstItem="j1f-dE-xj1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YsF-jd-BuH"/>
-                <constraint firstAttribute="trailing" secondItem="Oyu-7P-Egp" secondAttribute="trailing" id="sWh-Id-GhA"/>
+                <constraint firstItem="Oyu-7P-Egp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2XY-bJ-Kye"/>
+                <constraint firstAttribute="trailing" secondItem="j1f-dE-xj1" secondAttribute="trailing" id="DXr-lj-hQg"/>
+                <constraint firstItem="Oyu-7P-Egp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kly-0R-88Z"/>
+                <constraint firstItem="j1f-dE-xj1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="a8p-by-Mvo"/>
+                <constraint firstAttribute="trailing" secondItem="Oyu-7P-Egp" secondAttribute="trailing" id="fkK-Fk-bqZ"/>
+                <constraint firstItem="j1f-dE-xj1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iHz-hx-4eK"/>
+                <constraint firstAttribute="bottom" secondItem="j1f-dE-xj1" secondAttribute="bottom" constant="-35" id="upp-nO-KYF"/>
             </constraints>
             <point key="canvasLocation" x="354" y="232"/>
         </view>

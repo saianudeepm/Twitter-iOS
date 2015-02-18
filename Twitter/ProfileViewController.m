@@ -17,7 +17,6 @@
 NSString* pTableCell = @"TweetCell";
 
 @interface ProfileViewController ()<UITableViewDataSource,UITableViewDelegate,ProfileCellDelegate, ComposeViewControllerDelegate, DetailedViewControllerDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) ProfileCell *dummyCell;
 @property (nonatomic, strong) TweetCell *protoTypeCell;

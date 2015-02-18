@@ -28,13 +28,13 @@
     
     if([User currentUser]!=nil){
         NSLog(@"User already logged in ");
-        UINavigationController *unc = [[UINavigationController alloc] initWithRootViewController:[[MenuViewController alloc] init]];
+        //UINavigationController *unc = [[UINavigationController alloc] initWithRootViewController:[[MenuViewController alloc] init]];
         //MenuViewController *mvc = [[MenuViewController alloc] init];
-        self.window.rootViewController = unc;
+        self.window.rootViewController = [[LoginViewController alloc] init];
     }
     else{
-        UINavigationController *unc = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
-        self.window.rootViewController = unc;
+        //UINavigationController *unc = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
+        self.window.rootViewController = [[LoginViewController alloc] init];
         NSLog(@"User not logged in ");
     }
     

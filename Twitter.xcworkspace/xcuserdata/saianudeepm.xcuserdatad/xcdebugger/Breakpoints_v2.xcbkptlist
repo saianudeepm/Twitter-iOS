@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/ComposeViewController.m"
-            timestampString = "445861574.659535"
+            timestampString = "445931252.31423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-onTweet"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/ComposeViewController.m"
-            timestampString = "445861575.501489"
+            timestampString = "445931252.31423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-onTweet"
             landmarkType = "5">
          </BreakpointContent>
@@ -233,7 +233,7 @@
                   symbolName = "-[Tweet toggleFavoriteStatus]"
                   moduleName = "Twitter"
                   urlString = "file:///Users/saianudeepm/development/personal/ios/Twitter/Twitter/Tweet.m"
-                  timestampString = "445870612.215686"
+                  timestampString = "445914508.221326"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -247,7 +247,7 @@
                   symbolName = "__29-[Tweet toggleFavoriteStatus]_block_invoke93"
                   moduleName = "Twitter"
                   urlString = "file:///Users/saianudeepm/development/personal/ios/Twitter/Twitter/Tweet.m"
-                  timestampString = "445870612.215808"
+                  timestampString = "445914508.221478"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -334,6 +334,38 @@
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "-updateValues"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twitter/Tweet.m"
+            timestampString = "445895681.011976"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "-initWithDictionary:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twitter/LoginViewController.m"
+            timestampString = "445914154.436167"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-onLogin:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -66,24 +66,16 @@
 #pragma mark - private methods
 
 - (IBAction)onTweetTextChange:(id)sender {
-    NSInteger count = 140 - [self.tweetTextField.text length];
-    if(count==0)
+    NSInteger countRemaining = 140 - [self.tweetTextField.text length];
+    if(countRemaining<0)
     {
         [self.tweetButton setEnabled:NO];
     }
-    else if(count>0) {
+    else if(countRemaining>=0) {
         [self.tweetButton setEnabled:YES];
     }
     
-    if(count==140){
-        [self.tweetTextField setEnabled:NO];
-
-    }
-    else if(count<140){
-        [self.tweetTextField setEnabled:YES];
-    }
-    
-    self.textCounter.title = [NSString stringWithFormat:@"%ld", (long)count];
+    self.textCounter.title = [NSString stringWithFormat:@"%ld", (long)countRemaining];
 }
 
 

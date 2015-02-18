@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "twitter_square_white.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "twitter_square_white.png"
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
