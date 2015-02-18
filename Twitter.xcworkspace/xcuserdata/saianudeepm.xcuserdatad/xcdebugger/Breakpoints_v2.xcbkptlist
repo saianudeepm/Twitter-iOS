@@ -233,7 +233,7 @@
                   symbolName = "-[Tweet toggleFavoriteStatus]"
                   moduleName = "Twitter"
                   urlString = "file:///Users/saianudeepm/development/personal/ios/Twitter/Twitter/Tweet.m"
-                  timestampString = "445914508.221326"
+                  timestampString = "445948261.087513"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -247,7 +247,7 @@
                   symbolName = "__29-[Tweet toggleFavoriteStatus]_block_invoke93"
                   moduleName = "Twitter"
                   urlString = "file:///Users/saianudeepm/development/personal/ios/Twitter/Twitter/Tweet.m"
-                  timestampString = "445914508.221478"
+                  timestampString = "445948261.08772"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -360,12 +360,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/LoginViewController.m"
-            timestampString = "445914154.436167"
+            timestampString = "445947700.83642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-onLogin:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twitter/AppDelegate.m"
+            timestampString = "445948264.333777"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-application:openURL:sourceApplication:annotation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

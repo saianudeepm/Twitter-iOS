@@ -55,7 +55,10 @@
             [self loginUser:user];
         }
         else{
-            //present modally the error view
+            [self.loginButton setHidden:NO];
+            [self.logoImageView setHidden:NO];
+            [self.animateView setHidden:YES];
+            [self.navigationController setNavigationBarHidden:NO  animated:NO];
         }
         
     }];

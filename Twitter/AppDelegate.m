@@ -70,8 +70,16 @@
 }
 
 - (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    [[TwitterClient sharedInstance] openURL:url];
-    return YES;
+    NSString *urlString = [NSString stringWithFormat:@"%@",url];
+    NSRange range = [urlString rangeOfString : @"denied"];
+    BOOL denied = ( range.location != NSNotFound );
+    if(!denied){
+        [[TwitterClient sharedInstance] openURL:url];
+        return YES;
+    }
+    else
+        return NO;
+    
 }
 
 
